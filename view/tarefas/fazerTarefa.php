@@ -1,3 +1,32 @@
+<?php
+    include('../../database/connection.php');
+
+    $tarefa = $_GET['tarefa'];
+    
+
+    try{
+        $sql  = "select * from select_tarefas where id = :tarefa;";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":tarefa", $tarefa);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        if($rows){
+            $tarefas = $rows[0];
+        }else{
+            echo "
+            <script type='text/javascript'>
+                alert('Usuário ou senha inválidos');
+            </script>
+            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/index.php'>";
+        }
+    }
+    catch (PDOException $error) {
+        echo "Error:" . $error->getMessage();
+    }
+// var_dump($tarefas);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,11 +70,11 @@
             </div>
             <div class="work-container-tarefa">
                 <div class="work-container-tarefa-title">
-                    <h2>Apoio à Tarefa</h2>
+                    <h2>Apoio à Tarefa - <?php echo $tarefas->nome ?></h2>
                 </div>
                 <div class="work-container-tarefa-descricao">
-                    <textarea id="description" name="description" type="text" required ></textarea>
-                    <label for="description">Descrição</label>
+                    <textarea id="description" name="description" type="text" required value=""><?php echo $tarefas->descricao ?></textarea>
+                    <label for="description" style="margin-top: -30px">Descrição</label>
                 </div>
             </div>
 

@@ -48,7 +48,7 @@
                     <ul>
                         <?php 
                         foreach($tarefas as $tarefa){
-                            echo '<li><input type="checkbox" name="tarefa-'.$tarefa->id.'" id="tarefa-'.$tarefa->id.'"><a href="">'.$tarefa->nome.'</a></li>';
+                            echo '<li><input type="checkbox" name="tarefa-'.$tarefa->id.'" id="tarefa-'.$tarefa->id.'"><a href="fazerTarefa.php?tarefa='.$tarefa->id.'">'.$tarefa->nome.'</a></li>';
                         }
                         ?>
                     </ul>
