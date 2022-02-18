@@ -15,7 +15,7 @@
                 <div class="form-container-box-title">
                     <h2>Cadastre-se</h2>
                 </div>
-                <form action="tarefas/listarTarefas.php" method="post">
+                <form action="../controller/CadastroController.php" method="post">
                     <div class="form-container-box-form">
                         <div class="form-container-box-form-field_group">
                             <input id="user" name="user" type="text" required />

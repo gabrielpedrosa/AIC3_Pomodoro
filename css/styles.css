@@ -9,11 +9,12 @@ body
     padding: 0;
     display: flex;
     justify-content: center;
+    background: #fffff7;
 }
 
 .container
 {
-    background-color: aquamarine;
+    background-color: #fffff7;
     width: 100%;
 }
 

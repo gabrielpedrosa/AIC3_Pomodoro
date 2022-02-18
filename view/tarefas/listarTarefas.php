@@ -1,3 +1,32 @@
+<?php
+    include('../../database/connection.php');
+
+    $disciplina = $_GET['disciplina'];
+    
+
+    try{
+        $sql  = "select * from select_tarefas where id_disciplina_fk = :disciplina;";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":disciplina", $disciplina);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        if($rows){
+            $tarefas = $rows;
+        }else{
+            echo "
+            <script type='text/javascript'>
+                alert('Usuário ou senha inválidos');
+            </script>
+            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/index.php'>";
+        }
+    }
+    catch (PDOException $error) {
+        echo "Error:" . $error->getMessage();
+    }
+// var_dump($tarefas);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +47,8 @@
                 <div class="list-container-list-items">
                     <ul>
                         <?php 
-                        for($i = 0; $i < 10; $i++){
-                            echo '<li><input type="checkbox" name="tarefa-'.$i.'" id="tarefa-'.$i.'"><a href="">'.$i.'</a></li>';
+                        foreach($tarefas as $tarefa){
+                            echo '<li><input type="checkbox" name="tarefa-'.$tarefa->id.'" id="tarefa-'.$tarefa->id.'"><a href="">'.$tarefa->nome.'</a></li>';
                         }
                         ?>
                     </ul>
@@ -28,8 +57,8 @@
                     <div class="list-container-list-painel-box">
                         <div class="list-container-list-painel-box-button_group">
                             <button>Salvar Progresso</button>
-                            <button>Adicionar Tarefa</button>
-                            <button class="red-button">Remover Tarefas</button>
+                            <button onclick="location.href = 'adicionarTarefa.php'">Adicionar Tarefa</button>
+                            <button class="red-button" onclick="location.href = '../disciplinas/listarDisciplinas.php'">Voltar</button>
                         </div>
                     </div>
                 </div>

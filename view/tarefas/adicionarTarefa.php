@@ -1,3 +1,27 @@
+<?php
+    include('../../database/connection.php');
+
+    try{
+        $sql  = "select * from select_disciplinas;";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        if($rows){
+            $disciplinas = $rows;
+        }else{
+            echo "
+            <script type='text/javascript'>
+                alert('Usuário ou senha inválidos');
+            </script>
+            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/index.php'>";
+        }
+    }
+    catch (PDOException $error) {
+        echo "Error:" . $error->getMessage();
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +39,7 @@
                 <div class="form-container-box-title">
                     <h2>Nova Tarefa</h2>
                 </div>
-                <form action="tarefas/listarTarefas.php" method="post">
+                <form action="../../controller/CadastrarTarefa.php" method="post">
                     <div class="form-container-box-form">
                         <div class="form-container-box-form-field_group">
                             <input id="homework" name="homework" type="text" required />
@@ -28,13 +52,17 @@
                         <div class="form-container-box-form-field_group">
                             <select name="discipline" id="discipline" required>
                                 <option value="" selected></option>
-                                <option value="materia">Materia aqui</option>
+                                <?php
+                                    foreach($disciplinas as $disciplina){
+                                        echo '<option value="'.$disciplina->id.'">'.$disciplina->nome.'</option>';
+                                    }
+                                ?>
                             </select>
                             <label for="discipline">Matéria</label>
                         </div>
                         <div class="form-container-box-form-button_group">
                             <button type="submit">Salvar</button>
-                            <button class="red-button" type="button" onclick="location.href = 'listarTarefas.php'">Cancelar</button>
+                            <button class="red-button" type="button" onclick="location.href = '../disciplinas/listarDisciplinas.php'">Cancelar</button>
                         </div>
                     </div>
                 </form>

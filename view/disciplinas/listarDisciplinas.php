@@ -1,3 +1,27 @@
+<?php
+    include('../../database/connection.php');
+
+    try{
+        $sql  = "select * from select_disciplinas;";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        if($rows){
+            $disciplinas = $rows;
+        }else{
+            echo "
+            <script type='text/javascript'>
+                alert('Usuário ou senha inválidos');
+            </script>
+            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/index.php'>";
+        }
+    }
+    catch (PDOException $error) {
+        echo "Error:" . $error->getMessage();
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +42,8 @@
                 <div class="list-container-list-items">
                     <ul>
                         <?php 
-                        for($i = 0; $i < 10; $i++){
-                            echo '<li><input type="checkbox" name="disciplina-'.$i.'" id="disciplina-'.$i.'"><a href="">'.$i.'</a></li>';
+                        foreach($disciplinas as $disciplina){
+                            echo '<li><input type="checkbox" name="disciplina-'.$disciplina->id.'" id="disciplina-'.$disciplina->id.'"><a href="../tarefas/listarTarefas.php?disciplina='.$disciplina->id.'">'.$disciplina->nome.'</a></li>';
                         }
                         ?>
                     </ul>
@@ -28,8 +52,8 @@
                     <div class="list-container-list-painel-box">
                         <div class="list-container-list-painel-box-button_group">
                             <button>Salvar Progresso</button>
-                            <button>Adicionar Disciplina</button>
-                            <button class="red-button">Remover Disciplina</button>
+                            <button onclick="location.href = 'adicionarDisciplina.php'">Adicionar Disciplina</button>
+                            <button class="red-button" onclick="location.href = '/index.php'">Sair</button>
                         </div>
                     </div>
                 </div>

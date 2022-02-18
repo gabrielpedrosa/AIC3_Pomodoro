@@ -15,7 +15,7 @@
                 <div class="login-container-box-title">
                     <h2>LOGIN</h2>
                 </div>
-                <form action="" method="post">
+                <form action="controller/LoginController.php" method="post">
                     <div class="login-container-box-form">
                         <div class="login-container-box-form-field_group">
                             <input id="user" name="user" type="text" required />
