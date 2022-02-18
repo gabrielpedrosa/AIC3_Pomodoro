@@ -58,6 +58,20 @@ end;
 $$ delimiter ;
 
 delimiter $$
+create procedure atualizar_tarefa(id_tarefa int, stats_tarefa bool)
+begin
+	update Tarefas set stats = stats_tarefa where id = id_tarefa;
+end;
+$$ delimiter ;
+
+delimiter $$
+create procedure atualizar_disciplina(id_disciplina int, stats_disciplina bool)
+begin
+	update Disciplinas set stats = stats_disciplina where id = id_disciplina;
+end;
+$$ delimiter ;
+
+delimiter $$
 create procedure remover_tarefa(id_tarefa int)
 begin
 	delete from Tarefas where id = id_tarefa;
