@@ -1,0 +1,142 @@
+.form-container{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container-box{
+    max-width: 600px;
+    min-width: 500px;
+    background-color: antiquewhite;
+    position: absolute;
+    box-shadow: 0px 10px 10px 4px rgba(124,124,124,0.45);
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.form-container-box-title
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.form-container-box-title h2
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+    color: black;
+}
+
+.form-container-box-form
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-container-box-form-field_group,
+.form-container-box-form-show_password,
+.form-container-box-form-button_group
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    margin: 25px 0px;
+}
+
+.form-container-box-form-show_password
+{
+    flex-direction: row;
+    align-items: center;
+    margin: 0px 10px;
+}
+
+.form-container-box-form-button_group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.form-container-box-form-field_group input,
+.form-container-box-form-show_password input
+{
+    width: 100%;
+    height: 30px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 2px solid aquamarine;
+    background: transparent;
+    padding: 10px 10px;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.form-container-box-form-field_group label,
+.form-container-box-form-show_password label
+{
+    position: absolute;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 10px;
+    transition: 0.6s;
+    color: gray;
+}
+
+.form-container-box-form-show_password input
+{
+    width: 20px;
+    height: 20px;
+}
+
+.form-container-box-form-show_password label
+{
+    position: relative;
+}
+
+.form-container-box-form-field_group input:focus ~ label,
+.form-container-box-form-field_group input:valid ~ label
+{
+    color: black;
+    margin-top: -25px;
+}
+
+.form-container-box-form-button_group button{
+    display: flex;
+    height: 30px;
+    padding: 10px 20px;
+    text-align: center;
+    align-items: center;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 5px;
+    border: 1px solid #4361EE;
+    background: linear-gradient(180deg, #4361EE 0%, #3149B9 100%);
+    color: #fff;
+    transition: 0.6s;
+    cursor: pointer;
+}
+
+.form-container-box-form-button_group button:hover{
+    background: #33CC99;
+    border: 1px solid #156d50;
+}
+
+.form-container-box-form-button_group a{
+    padding: 10px 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: 0.3s;
+}
+
+.form-container-box-form-button_group a:hover{
+    color: #33CC99;
+}
