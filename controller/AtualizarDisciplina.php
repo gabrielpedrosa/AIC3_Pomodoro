@@ -3,9 +3,8 @@
 
     $disciplinas = $_POST['disciplinas'];
 
-    
-
     foreach($disciplinas as $disciplina){
+        
         $id = (int) $disciplina;
         $stats = 1;
         try{
