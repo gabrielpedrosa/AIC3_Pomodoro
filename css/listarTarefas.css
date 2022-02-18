@@ -1,0 +1,120 @@
+.list-container
+{
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 50px
+}
+
+
+.list-container-title
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.list-container-title h2
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+    color: black;
+    padding: 10px 20px;
+}
+
+.list-container-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    width: 100%;
+    flex-direction: row;
+}
+
+.list-container-list-items
+{
+    justify-content: flex-start;
+}
+
+.list-container-list-painel
+{
+    justify-content: flex-start;
+}
+
+.list-container-list-painel-box
+{
+    max-width: 400px;
+    min-width: 300px;
+    background-color: antiquewhite;
+    box-shadow: 0px 10px 10px 4px rgba(124,124,124,0.45);
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.list-container-list-painel-box-button_group
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-container-list-painel-box-button_group button{
+    display: flex;
+    margin: 15px 0px;
+    height: 30px;
+    padding: 10px 20px;
+    text-align: center;
+    align-items: center;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 5px;
+    border: 1px solid #4361EE;
+    background: linear-gradient(180deg, #4361EE 0%, #3149B9 100%);
+    color: #fff;
+    transition: 0.6s;
+    cursor: pointer;
+
+}
+
+.list-container-list-painel-box-button_group button:hover{
+    background: #33CC99;
+    border: 1px solid #156d50;
+}
+
+.list-container-list-painel-box-button_group .red-button:hover{
+    background: #E94343;
+    border: 1px solid #992424;
+}
+
+.list-container-list ul li
+{
+    list-style: none;
+    padding: 5px 0px;
+}
+.list-container-list ul li input{
+    width: 15px;
+    height: 15px;
+}
+
+.list-container-list ul li a
+{
+    text-decoration: none;
+    color: black;
+    margin: 0 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .list-container-list{
+        flex-direction: column;
+    }
+    
+}
